@@ -5,88 +5,815 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Nanhi Potli - maternity shoot experiences capturing motherhood and little moments."
+      content="Nanhi Potli helps first-time parents discover curated, trusted baby product recommendations with safety notes and source references."
     />
-    <title>Nanhi Potli | Maternity Shoots</title>
+    <title>Nanhi Potli | Trusted Baby Product Picks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero__badge">Maternity Shoots · Newborn Moments · Family Memories</div>
-      <img class="logo" src="assets/logo_updated.jpeg" alt="Nanhi Potli baby swaddle logo" />
-      <h1 class="brand">Nanhi Potli</h1>
-      <p class="tagline">Capturing Motherhood and Little Moments</p>
-      <p class="intro">
-        A warm, pastel-themed photography experience celebrating your journey to parenthood.
-      </p>
-      <a class="hero__button" href="#packages">Explore Packages</a>
+    <header class="app-header">
+      <nav class="topbar" aria-label="Primary navigation">
+        <a class="brand-mark" href="#top" aria-label="Nanhi Potli home">
+          <img src="assets/logo.svg" alt="" />
+          <span>Nanhi Potli</span>
+        </a>
+        <button
+          class="category-menu-button"
+          id="categoryMenuButton"
+          type="button"
+          aria-label="Open categories"
+          aria-expanded="false"
+          aria-controls="categoryTabs"
+        >
+          <span class="menu-lines" aria-hidden="true"></span>
+        </button>
+        <div class="topbar__actions">
+          <a href="#recommendations">Products</a>
+          <a href="#method">How picks work</a>
+          <a href="#liked-by-mothers">Liked by Mothers</a>
+        </div>
+      </nav>
+      <div class="header-categories">
+        <div
+          class="category-tabs"
+          id="categoryTabs"
+          role="tablist"
+          aria-label="Product categories"
+        ></div>
+      </div>
+
+      <section id="top" class="hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Curated baby product recommendations</p>
+          <h1>Trusted picks for parents who want fewer, safer choices.</h1>
+          <p>
+            A proof of concept for first-time parents, especially mothers, to compare only
+            seed-shortlisted baby products with safety notes, expert references, source links,
+            and moderation status.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#recommendations">View recommendations</a>
+            <a class="button button--secondary" href="#method">Review criteria</a>
+          </div>
+        </div>
+        <aside class="trust-panel" aria-label="Recommendation quality snapshot">
+          <div>
+            <strong>15</strong>
+            <span>draft seed picks</span>
+          </div>
+          <div>
+            <strong>5</strong>
+            <span>baby categories</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>expert-source linked</span>
+          </div>
+        </aside>
+      </section>
     </header>
 
     <main>
-      <section id="about" class="card-section">
-        <h2>About Us</h2>
-        <p>
-          At Nanhi Potli, we design soft and elegant maternity shoots with natural poses,
-          gentle storytelling, and a focus on authentic emotions. Every frame is styled to feel
-          timeless, tender, and full of love.
-        </p>
+      <section id="recommendations" class="section">
+        <div class="section__intro section__intro--split">
+          <div>
+            <p class="eyebrow">Recommendation board</p>
+            <h2>Browse draft recommended candidates</h2>
+          </div>
+          <p>
+            These products are seed candidates for the POC. They should become platform
+            recommendations only after admin approval, source review, and parent evidence.
+          </p>
+        </div>
+
+        <div class="disclaimer" role="note">
+          This POC is not medical advice. Parent ratings, rating breakdowns, and product-specific
+          recall checks are not verified in the seed data.
+        </div>
+
+        <div class="toolbar" aria-label="Product search and filters">
+          <label>
+            Search products
+            <input id="searchInput" type="search" placeholder="Search by product, brand, or category" />
+          </label>
+          <label>
+            Sort
+            <select id="sortSelect">
+              <option value="score-desc">Internal score: high to low</option>
+              <option value="name-asc">Product name: A to Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="category-summary" id="categorySummary" aria-live="polite"></div>
+        <div class="product-grid" id="productGrid"></div>
       </section>
 
-      <section id="packages" class="card-section">
-        <h2>Maternity Packages</h2>
-        <p class="section-note">Website is currently in progress. Packages listed below are preview plans.</p>
-        <div class="package-grid">
-          <article class="package-card">
-            <h3>Blush Bloom</h3>
-            <p class="price">Starting at ₹8,999</p>
-            <ul>
-              <li>1 indoor setup</li>
-              <li>10 edited photographs</li>
-              <li>45-minute guided session</li>
-            </ul>
+      <section class="section band">
+        <div class="section__intro">
+          <p class="eyebrow">For overwhelmed product decisions</p>
+          <h2>Not an endless catalogue. A small, moderated shortlist.</h2>
+        </div>
+        <div class="value-grid">
+          <article>
+            <span class="icon">1</span>
+            <h3>Curated first</h3>
+            <p>Every product starts as a seed pick for review, not a paid listing feed.</p>
           </article>
-          <article class="package-card">
-            <h3>Little Starlight</h3>
-            <p class="price">Starting at ₹14,999</p>
-            <ul>
-              <li>2 setups (indoor/outdoor)</li>
-              <li>20 edited photographs</li>
-              <li>Maternity gown assistance</li>
-            </ul>
+          <article>
+            <span class="icon">2</span>
+            <h3>Safety visible</h3>
+            <p>Age range, certification claims, recall status, and usage notes are shown upfront.</p>
           </article>
-          <article class="package-card">
-            <h3>Potli Signature</h3>
-            <p class="price">Starting at ₹21,999</p>
-            <ul>
-              <li>3 premium setups</li>
-              <li>30 edited photographs + teaser reel</li>
-              <li>Partner and family add-on included</li>
-            </ul>
+          <article>
+            <span class="icon">3</span>
+            <h3>Parent proof</h3>
+            <p>Parent ratings are collected separately and stay pending until moderated.</p>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="card-section card-section--accent">
-        <h2>Booking Opens Soon</h2>
-        <p>
-          We are preparing a complete booking experience for nanhipotli.com. For early inquiries,
-          write to <a href="mailto:nanhipotli@gmail.com">nanhipotli@gmail.com</a>.
-        </p>
+      <section id="method" class="section band">
+        <div class="section__intro">
+          <p class="eyebrow">Moderation model</p>
+          <h2>What the POC tracks before a product earns trust.</h2>
+        </div>
+        <div class="method-list">
+          <article>
+            <h3>Trusted source references</h3>
+            <p>Official product pages and expert guidance are linked for every seed pick.</p>
+          </article>
+          <article>
+            <h3>Parent feedback loop</h3>
+            <p>Parent rating collection, common complaint validation, and community submissions are planned workflow states.</p>
+          </article>
+          <article>
+            <h3>Safety review</h3>
+            <p>Certifications, age fit, usage cautions, and recall checks are separated from marketing claims.</p>
+          </article>
+        </div>
+        <div class="score-model">
+          <div>
+            <h3>Suggested score components</h3>
+            <ul>
+              <li>Parent rating score: 30%</li>
+              <li>Verified parent review count: 20%</li>
+              <li>Expert/source credibility: 20%</li>
+              <li>Safety score: 15%</li>
+              <li>Complaint/risk score: 10%</li>
+              <li>Editorial confidence: 5%</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Promotion gate</h3>
+            <p>
+              A community product becomes review-eligible only after enough ratings, strong average
+              rating, positive review ratio, no unresolved severe safety complaint, and admin approval.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="liked-by-mothers" class="section liked-section">
+        <div class="section__intro section__intro--split">
+          <div>
+            <p class="eyebrow">Liked by Mothers</p>
+            <h2>Community submissions stay separate until approved.</h2>
+          </div>
+          <p>
+            No approved community products are included in this POC yet. Submitted products are
+            stored as local drafts and should enter moderation before display.
+          </p>
+        </div>
+        <div class="empty-state">
+          <strong>0 approved community products</strong>
+          <span>Awaiting moderated parent submissions</span>
+        </div>
+      </section>
+
+      <section id="community" class="section community">
+        <div class="section__intro">
+          <p class="eyebrow">Community contribution</p>
+          <h2>Recommend a product for review</h2>
+          <p>
+            The live product can collect parent-submitted recommendations, then route them to
+            moderation before they appear in the trusted shortlist.
+          </p>
+        </div>
+        <form class="submission-form" id="submissionForm">
+          <label>
+            Product name
+            <input name="productName" type="text" placeholder="Example: Chicco Echo Stroller" />
+          </label>
+          <label>
+            Category
+            <select name="productCategory">
+              <option value="">Select category</option>
+              <option>Stroller</option>
+              <option>Teether</option>
+              <option>Feeding Bottle</option>
+              <option>Diaper</option>
+              <option>Baby Car Seat</option>
+            </select>
+          </label>
+          <label>
+            Brand
+            <input name="brand" type="text" placeholder="Example: Chicco" />
+          </label>
+          <label>
+            Rating
+            <select name="rating">
+              <option value="">Select rating</option>
+              <option value="5">5 - Strongly recommend</option>
+              <option value="4">4 - Recommend</option>
+              <option value="3">3 - Neutral</option>
+              <option value="2">2 - Some concerns</option>
+              <option value="1">1 - Would not recommend</option>
+            </select>
+          </label>
+          <label>
+            Review
+            <textarea name="review" placeholder="Share comfort, safety, durability, or daily-use feedback"></textarea>
+          </label>
+          <label>
+            Child age when used
+            <input name="childAge" type="text" placeholder="Example: 6 months" />
+          </label>
+          <label>
+            Safety issue faced
+            <textarea name="safetyIssue" placeholder="Optional: mention any safety concern or write none"></textarea>
+          </label>
+          <button class="button button--primary" type="submit">Save draft recommendation</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
       </section>
     </main>
 
     <footer>
-      <p>© <span id="year"></span> Nanhi Potli. All rights reserved.</p>
+      <span>Nanhi Potli MVP POC</span>
+      <span>Seed data generated on June 25, 2026</span>
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      const products = [
+        {
+          product_name: "LuvLap Galaxy Baby Stroller",
+          category: "Stroller",
+          brand: "LuvLap",
+          product_link:
+            "https://www.luvlap.com/products/luvlap-galaxy-baby-stroller-pram-for-baby-with-5-point-safety-harness-spacious-cushioned-seat-with-multi-level-seat-recline-easy-fold-lightweight-baby-stroller-for-0-to-3-years-black",
+          product_image:
+            "https://www.luvlap.com/cdn/shop/files/1_d22a80e7-400c-4cae-96c2-b56f97b4c787.jpg?v=1765760424",
+          official_product_source:
+            "https://www.luvlap.com/products/luvlap-galaxy-baby-stroller-pram-for-baby-with-5-point-safety-harness-spacious-cushioned-seat-with-multi-level-seat-recline-easy-fold-lightweight-baby-stroller-for-0-to-3-years-black",
+          age_range: "0-3 years",
+          safety_standard_certification: "EN 1888 claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Spacious stroller with 5-point harness, reversible handle, 3-level recline, swivel/front wheel locks and rear link brakes.",
+          common_complaint:
+            "Validate weight, fold ease, and wheel durability from first-party reviews.",
+          safety_notes:
+            "Use harness every time; lock brakes when stopped; verify weight limit; do not hang heavy bags on handle.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 78,
+        },
+        {
+          product_name: "R for Rabbit Chocolate Ride Baby Stroller",
+          category: "Stroller",
+          brand: "R for Rabbit",
+          product_link: "https://rforrabbit.com/products/chocolate-ride-baby-stroller-prams-black-multi",
+          product_image:
+            "https://rforrabbit.com/cdn/shop/files/01_828319fb-6a65-4d97-bb41-eb361f866908.jpg?v=1778059807",
+          official_product_source:
+            "https://rforrabbit.com/products/chocolate-ride-baby-stroller-prams-black-multi",
+          age_range: "0-3 years",
+          safety_standard_certification: "EN 1888 claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Reversible-handle stroller with 5-point harness, link brake, 3-position recline, suspension and storage basket.",
+          common_complaint:
+            "Validate product weight, fold mechanism, and maneuverability on Indian roads.",
+          safety_notes:
+            "Use 5-point harness; lock link brake when stopped; verify age and weight capacity; avoid overloading.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 80,
+        },
+        {
+          product_name: "Chicco Echo Stroller",
+          category: "Stroller",
+          brand: "Chicco",
+          product_link: "https://www.chicco.in/products/echo-stroller-with-bumper-bar-scarlet",
+          product_image:
+            "https://www.chicco.in/cdn/shop/files/chicco-echo-stroller-with-bumper-bar-scarlet-1.webp?v=1761038545",
+          official_product_source: "https://www.chicco.in/products/echo-stroller-with-bumper-bar-scarlet",
+          age_range: "Birth to 22 kg",
+          safety_standard_certification:
+            "No specific EN/BIS/ASTM certification identified on source",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Compact, foldable stroller with padded bumper bar, wide seat, padded backrest and shoulder pads.",
+          common_complaint: "Validate fold size, wheel performance, and comfort on rough roads.",
+          safety_notes:
+            "Check brake usability; use harness and shoulder pads; verify child weight; never leave child unattended.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 74,
+        },
+        {
+          product_name: "Chicco Refreshing Ring Teether 4M+",
+          category: "Teether",
+          brand: "Chicco",
+          product_link:
+            "https://www.chicco.in/products/teether-refreshing-ring-handle-pink-4-month-onwards-1pc",
+          product_image:
+            "https://www.chicco.in/cdn/shop/files/chicco-teether-refreshing-ring-handle-pink-4-month-onwards-1pc-1.webp?v=1761282863",
+          official_product_source:
+            "https://www.chicco.in/products/teether-refreshing-ring-handle-pink-4-month-onwards-1pc",
+          age_range: "4 months+",
+          safety_standard_certification:
+            "BPA-free, food-grade, non-toxic claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.fda.gov/consumers/consumer-updates/safely-soothing-teething-pain-infants-and-children",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Cooling teether designed to soothe gums; ergonomic, lightweight, smooth edges, BPA-free and food-grade material claim.",
+          common_complaint: "Validate cleaning difficulty, puncture risk, and baby acceptance.",
+          safety_notes:
+            "Inspect for cracks or punctures; wash before use; avoid numbing teething gels unless advised.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 76,
+        },
+        {
+          product_name: "LuvLap Baby Silicone Teether Dual Pack",
+          category: "Teether",
+          brand: "LuvLap",
+          product_link:
+            "https://www.luvlap.com/products/luvlap-baby-silicone-teether-for-teething-gums-dual-pack-teething-toy-for-infants-and-babies-100-food-grade-silicone-carrot-mushroom-design-with-textured-surface-orange-white-green",
+          product_image:
+            "https://www.luvlap.com/cdn/shop/files/Artboard1_83b635a1-b3c9-4a74-b31e-a5897712293b.jpg?v=1765759080",
+          official_product_source:
+            "https://www.luvlap.com/products/luvlap-baby-silicone-teether-for-teething-gums-dual-pack-teething-toy-for-infants-and-babies-100-food-grade-silicone-carrot-mushroom-design-with-textured-surface-orange-white-green",
+          age_range: "3 months+",
+          safety_standard_certification:
+            "100% food-grade silica gel / FDA-approved claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.fda.gov/consumers/consumer-updates/safely-soothing-teething-pain-infants-and-children",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Textured silicone teether dual pack designed for gum massage with freezer, microwave and dishwasher safe claim.",
+          common_complaint: "Validate size, grip, staining, and odor after repeated use.",
+          safety_notes:
+            "Clean and sterilize as instructed; inspect before every use; supervise baby during use.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 74,
+        },
+        {
+          product_name: "Mee Mee Multi-Textured Silicone Teether",
+          category: "Teether",
+          brand: "Mee Mee",
+          product_link:
+            "https://meemee.in/products/mee-mee-multi-textured-silicone-teether-flower-shaped-baby-grip",
+          product_image:
+            "https://meemee.in/cdn/shop/products/Mee_Mee_Multi-Textured_Silicone_Teether_Flower_Shape_Baby_Grip_Blue.jpg?v=1657641055",
+          official_product_source:
+            "https://meemee.in/products/mee-mee-multi-textured-silicone-teether-flower-shaped-baby-grip",
+          age_range: "Not clearly stated on official source",
+          safety_standard_certification:
+            "BPA-free, soft silicone, non-toxic claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source:
+            "https://www.fda.gov/consumers/consumer-updates/safely-soothing-teething-pain-infants-and-children",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Flower-shaped, multi-textured silicone teether with baby-grip shape, rounded edges and sterilizable positioning.",
+          common_complaint: "Validate grip for younger babies, cleaning, and durability.",
+          safety_notes:
+            "Confirm age suitability before recommending; inspect for damage; avoid teething jewelry and numbing gels.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 69,
+        },
+        {
+          product_name: "Philips Avent Natural Response Baby Bottle",
+          category: "Feeding Bottle",
+          brand: "Philips Avent",
+          product_link: "https://www.shop.philips.co.in/collections/feeding-bottles",
+          product_image:
+            "https://www.shop.philips.co.in/cdn/shop/files/New_Project_16.jpg?v=1744870872",
+          official_product_source: "https://www.shop.philips.co.in/collections/feeding-bottles",
+          age_range: "1 month+ for listed 260 ml variant; some variants 0m+",
+          safety_standard_certification: "BPA-free claim on official Philips India shop collection",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/clean-sanitize-store-infant-feeding-items.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Natural Response nipple designed to release milk when baby drinks; BPA-free bottle variants listed.",
+          common_complaint:
+            "Validate nipple flow mismatch, leakage, cleaning, and baby acceptance.",
+          safety_notes:
+            "Choose correct flow size; clean bottle parts after every feed; sterilize where appropriate.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 77,
+        },
+        {
+          product_name: "Chicco Well-Being Feeding Bottle 250 ml",
+          category: "Feeding Bottle",
+          brand: "Chicco",
+          product_link:
+            "https://www.chicco.in/products/well-being-bipack-medium-flow-bottle-250ml-2-month-onwards-blue-and-green",
+          product_image:
+            "https://www.chicco.in/cdn/shop/files/chicco-well-being-bipack-medium-flow-bottle-250ml-2-month-onwards-blue-and-green-1.webp?v=1761559762",
+          official_product_source:
+            "https://www.chicco.in/products/well-being-bipack-medium-flow-bottle-250ml-2-month-onwards-blue-and-green",
+          age_range: "2 months+",
+          safety_standard_certification:
+            "BPA-free polypropylene, 100% silicone teat claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/clean-sanitize-store-infant-feeding-items.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Wide-neck bottle with anti-colic valve, 100% silicone teat and BPA-free polypropylene claim.",
+          common_complaint:
+            "Validate nipple flow, leakage, cleaning, and transition from breastfeeding.",
+          safety_notes:
+            "Clean and air-dry all parts; use correct nipple flow; monitor for wear or cracks.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 78,
+        },
+        {
+          product_name: "Pigeon Peristaltic Nursing Bottle KPP 120 ml Twin Pack",
+          category: "Feeding Bottle",
+          brand: "Pigeon",
+          product_link:
+            "https://pigeon-in.com/products/peristaltic-nursing-bottle-twin-pack-kpp-120ml-nipple-s",
+          product_image:
+            "https://pigeon-in.com/cdn/shop/files/1_bb7e2e4d-b76b-4f71-8ad1-e9a4fa899f6b.jpg?v=1748329777",
+          official_product_source:
+            "https://pigeon-in.com/products/peristaltic-nursing-bottle-twin-pack-kpp-120ml-nipple-s",
+          age_range: "9 months+ as listed on official Pigeon India page",
+          safety_standard_certification: "BPA-free claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/clean-sanitize-store-infant-feeding-items.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Peristaltic nursing bottle twin pack positioned as BPA-free feeding solution for babies 9 months+.",
+          common_complaint: "Validate suitability for younger babies, nipple flow, and leakage.",
+          safety_notes:
+            "Verify exact nipple size and age fit; wash after every feed; replace nipple if cracked or sticky.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 70,
+        },
+        {
+          product_name: "Pampers Premium Care Diaper Pants",
+          category: "Diaper",
+          brand: "Pampers",
+          product_link: "https://www.in.pampers.com/diapers-wipes/pampers-premium-care-diaper-pants",
+          product_image:
+            "https://images.ctfassets.net/2ql69mthp94m/5qdRwYEtBilDaI0uOhZPB4/dbf29963e3413ae26a04927af7a7ad54/D_TopBanner_Premium_Care_Pants_1600x880_R.jpg",
+          official_product_source:
+            "https://www.in.pampers.com/diapers-wipes/pampers-premium-care-diaper-pants",
+          age_range: "Depends on size/weight variant",
+          safety_standard_certification:
+            "No BIS/EN/ASTM standard identified; wetness indicator and softness claims",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/healthy-habits-diaper-changing-steps-at-home.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Premium diaper pants with wetness indicator, soft/stretchy sides and easy-disposal positioning.",
+          common_complaint: "Validate rash, leakage, fit marks, and price/value.",
+          safety_notes:
+            "Choose correct size; change frequently; monitor rash; clean diaper area properly.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 73,
+        },
+        {
+          product_name: "Huggies Complete Comfort Wonder Pants",
+          category: "Diaper",
+          brand: "Huggies",
+          product_link: "https://www.huggies.co.in/diapers/huggies-wonder-pants",
+          product_image:
+            "https://www.huggies.co.in/-/media/feature/huggies/apac/in/product/pdp-images/wonder-pants-pdp.jpg?rev=1bb7ce598fcd4dc4a8778fd7eeacf011",
+          official_product_source: "https://www.huggies.co.in/diapers/huggies-wonder-pants",
+          age_range: "XS/NB 0-5 kg to XXXL 17 kg+",
+          safety_standard_certification:
+            "No BIS/EN/ASTM standard identified; up to 12 hours absorbency claim",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/healthy-habits-diaper-changing-steps-at-home.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Diaper pants with multiple weight-size variants and up to 12 hours absorbency positioning.",
+          common_complaint: "Validate rash, leakage, size fit, and overnight absorbency.",
+          safety_notes:
+            "Do not rely only on 12-hour claim; change when soiled or wet; watch for rash or tight elastic marks.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 73,
+        },
+        {
+          product_name: "MamyPoko Pants Extra Absorb",
+          category: "Diaper",
+          brand: "MamyPoko",
+          product_link: "https://www.mamypoko.co.in/products/extra-absorb-diapers",
+          product_image:
+            "https://mamypoco.s3.ap-south-1.amazonaws.com/documents/c966c6f1-dc61-4f23-bea7-e710946d3f6f.webp",
+          official_product_source: "https://www.mamypoko.co.in/products/extra-absorb-diapers",
+          age_range: "Depends on size/weight variant; Small listed as 4-8 kg",
+          safety_standard_certification:
+            "No BIS/EN/ASTM standard identified; absorbency and leakage protection claims",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.cdc.gov/hygiene/about/healthy-habits-diaper-changing-steps-at-home.html",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Extra absorb diaper pants with crisscross sheet, up to 12-hour absorbency positioning and flexible fit.",
+          common_complaint: "Validate rash, thigh leakage, fit, and sogginess.",
+          safety_notes:
+            "Pick correct weight size; change when wet or soiled; stop use if repeated red marks appear.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 72,
+        },
+        {
+          product_name: "R for Rabbit Jack N Jill Grand Baby Car Seat",
+          category: "Baby Car Seat",
+          brand: "R for Rabbit",
+          product_link: "https://rforrabbit.com/products/jack-n-jill-grand-baby-car-seat",
+          product_image:
+            "https://rforrabbit.com/cdn/shop/files/01-BlackGrey.jpg?v=1776157049",
+          official_product_source: "https://rforrabbit.com/products/jack-n-jill-grand-baby-car-seat",
+          age_range: "0-7 years; rear-facing Group 0 listed as 0-2 years / 0-10 kg",
+          safety_standard_certification: "ECE R44/04 claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.nhtsa.gov/equipment/car-seats-and-booster-seats",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Convertible car seat with ECE R44/04 claim, rear-facing infant use and recline positioning.",
+          common_complaint:
+            "Validate installation difficulty, fit in small cars, and padding comfort.",
+          safety_notes:
+            "Install exactly as manual says; keep rear-facing as long as allowed; check harness tightness.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 82,
+        },
+        {
+          product_name: "Chicco Unico Evo i-Size Baby Car Seat",
+          category: "Baby Car Seat",
+          brand: "Chicco",
+          product_link: "https://www.chicco.in/products/unico-evo-i-size-baby-car-seat-black",
+          product_image:
+            "https://www.chicco.in/cdn/shop/files/chicco-unico-evo-i-size-baby-car-seat-black.webp?v=1764158026",
+          official_product_source: "https://www.chicco.in/products/unico-evo-i-size-baby-car-seat-black",
+          age_range: "Birth to approx. 12 years; 40-150 cm",
+          safety_standard_certification:
+            "ECE R129/03 / i-Size certification stated on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.nhtsa.gov/equipment/car-seats-and-booster-seats",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "All-stage i-Size car seat with 360-degree rotation, Isofix/Top Tether installation, rear-facing and forward-facing modes.",
+          common_complaint: "Validate high price, heavy seat, and car compatibility.",
+          safety_notes:
+            "Verify car compatibility; use correct install mode by height; keep rear-facing to limit.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 86,
+        },
+        {
+          product_name: "LuvLap Galaxy Convertible Car Seat",
+          category: "Baby Car Seat",
+          brand: "LuvLap",
+          product_link:
+            "https://www.luvlap.com/products/luvlap-galaxy-convertible-car-seat-for-baby-kids-from-0-months-to-7-years-red",
+          official_product_source:
+            "https://www.luvlap.com/products/luvlap-galaxy-convertible-car-seat-for-baby-kids-from-0-months-to-7-years-red",
+          age_range: "0 months to 7 years",
+          safety_standard_certification: "European Safety Standards ECER44/04 claim on official brand page",
+          recall_checked: "No - product-specific recall check pending",
+          expert_source: "https://www.nhtsa.gov/equipment/car-seats-and-booster-seats",
+          parent_source: "Pending first-party parent review collection",
+          summary:
+            "Convertible rearward/front-facing car seat with 5-point harness and soft padding positioning.",
+          common_complaint: "Validate installation clarity, harness adjustment, and seat bulk.",
+          safety_notes:
+            "Follow manual; verify 5-point harness fit; keep rear-facing within manufacturer limits.",
+          editorial_status: "Draft seed pick",
+          confidence_score: 80,
+        },
+      ];
+
+      const categoryNotes = {
+        Stroller: "For walks, travel, and daily errands. Prioritize harness, brakes, recline, stability, and fold usability.",
+        Teether: "For teething comfort. Prioritize food-grade materials, easy cleaning, damage checks, and supervised use.",
+        "Feeding Bottle":
+          "For bottle feeding. Prioritize nipple flow, cleaning workflow, material claims, and age fit.",
+        Diaper: "For everyday changes. Prioritize size fit, rash monitoring, absorbency, and skin comfort.",
+        "Baby Car Seat":
+          "For road safety. Prioritize certification, fit in your car, installation clarity, and rear-facing limits.",
+      };
+
+      const categoryTabs = document.querySelector("#categoryTabs");
+      const recommendationsSection = document.querySelector("#recommendations");
+      const categorySummary = document.querySelector("#categorySummary");
+      const productGrid = document.querySelector("#productGrid");
+      const categoryMenuButton = document.querySelector("#categoryMenuButton");
+      const searchInput = document.querySelector("#searchInput");
+      const sortSelect = document.querySelector("#sortSelect");
+      const submissionForm = document.querySelector("#submissionForm");
+      const formStatus = document.querySelector("#formStatus");
+      const categories = [...new Set(products.map((product) => product.category))];
+      let activeCategory = categories[0];
+
+      function verifiedRatingText() {
+        return "Pending";
+      }
+
+      function productImage(product) {
+        return product.product_image || product.image_url || product.image || product.thumbnail_url || "";
+      }
+
+      function renderTabs(activeCategory) {
+        categoryTabs.innerHTML = categories
+          .map(
+            (category) => `
+              <button
+                class="tab ${category === activeCategory ? "is-active" : ""}"
+                type="button"
+                role="tab"
+                aria-selected="${category === activeCategory}"
+                data-category="${category}"
+              >
+                ${category}
+              </button>
+            `
+          )
+          .join("");
+      }
+
+      function renderProducts(category) {
+        const query = searchInput.value.trim().toLowerCase();
+        const sortMode = sortSelect.value;
+        const categoryProducts = products
+          .filter((product) => product.category === category)
+          .filter((product) => {
+            if (!query) return true;
+            return [product.product_name, product.brand, product.category]
+              .join(" ")
+              .toLowerCase()
+              .includes(query);
+          })
+          .sort((a, b) => {
+            if (sortMode === "name-asc") return a.product_name.localeCompare(b.product_name);
+            return b.confidence_score - a.confidence_score;
+          });
+
+        if (!categoryProducts.length) {
+          categorySummary.innerHTML = `
+            <div>
+              <p class="eyebrow">No matching seed candidates</p>
+              <h3>${category}</h3>
+              <p>Try a different product, brand, or category search.</p>
+            </div>
+          `;
+          productGrid.innerHTML = "";
+          return;
+        }
+
+        categorySummary.innerHTML = `
+          <div>
+            <p class="eyebrow">${categoryProducts.length} draft seed candidates</p>
+            <h3>${category}</h3>
+            <p>${categoryNotes[category]}</p>
+          </div>
+        `;
+
+        productGrid.innerHTML = categoryProducts
+          .map(
+            (product) => `
+              <a
+                class="product-card product-card--compact"
+                href="product-detail.html?product=${encodeURIComponent(product.product_name)}"
+                data-product-name="${product.product_name}"
+              >
+                <div class="product-thumb">
+                  ${
+                    productImage(product)
+                      ? `<img src="${productImage(product)}" alt="${product.product_name}" loading="lazy" />`
+                      : `<span>Image pending</span>`
+                  }
+                </div>
+                <div>
+                  <p class="brand-name">${product.brand}</p>
+                  <h3>${product.product_name}</h3>
+                </div>
+                <div class="compact-rating">
+                  <span>Parent rating</span>
+                  <strong>${verifiedRatingText()}</strong>
+                </div>
+              </a>
+            `
+          )
+          .join("");
+      }
+
+      function findProductByName(productName) {
+        return products.find((product) => product.product_name === productName);
+      }
+
+      function saveProductForDetail(productName) {
+        const product = findProductByName(productName);
+        if (!product) return;
+        sessionStorage.setItem("nanhi-potli-selected-product", JSON.stringify(product));
+      }
+
+      function setCategory(category) {
+        activeCategory = category;
+        renderTabs(category);
+        renderProducts(category);
+      }
+
+      function closeCategoryMenu() {
+        document.body.classList.remove("category-menu-open");
+        categoryMenuButton.setAttribute("aria-expanded", "false");
+      }
+
+      categoryTabs.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-category]");
+        if (!button) return;
+        setCategory(button.dataset.category);
+        closeCategoryMenu();
+        recommendationsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      categoryMenuButton.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("category-menu-open");
+        categoryMenuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeCategoryMenu();
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target.closest(".category-menu-button")) return;
+        if (event.target.closest(".header-categories")) return;
+        closeCategoryMenu();
+      });
+
+      searchInput.addEventListener("input", () => renderProducts(activeCategory));
+      sortSelect.addEventListener("change", () => renderProducts(activeCategory));
+      productGrid.addEventListener("click", (event) => {
+        const card = event.target.closest(".product-card[data-product-name]");
+        if (!card) return;
+        saveProductForDetail(card.dataset.productName);
+      });
+
+      submissionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(submissionForm);
+        const productName = formData.get("productName").trim();
+        const productCategory = formData.get("productCategory").trim();
+        const brand = formData.get("brand").trim();
+        const rating = formData.get("rating").trim();
+        const review = formData.get("review").trim();
+
+        if (!productName || !productCategory || !brand || !rating || !review) {
+          formStatus.textContent = "Add product name, category, brand, rating, and review to save the draft.";
+          formStatus.dataset.state = "error";
+          return;
+        }
+
+        localStorage.setItem(
+          "nanhi-potli-draft-recommendation",
+          JSON.stringify({
+            productName,
+            productCategory,
+            brand,
+            rating,
+            review,
+            childAge: formData.get("childAge").trim(),
+            safetyIssue: formData.get("safetyIssue").trim(),
+            moderationStatus: "Pending moderation",
+            savedAt: new Date().toISOString(),
+          })
+        );
+        formStatus.textContent = "Draft saved locally. It is not displayed until moderation approves it.";
+        formStatus.dataset.state = "success";
+        submissionForm.reset();
+      });
+
+      setCategory(categories[0]);
     </script>
   </body>
 </html>

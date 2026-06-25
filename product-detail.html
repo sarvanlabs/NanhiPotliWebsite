@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Product detail view for Nanhi Potli baby product recommendation POC."
+    />
+    <title>Product Details | Nanhi Potli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="detail-header">
+      <nav class="topbar" aria-label="Primary navigation">
+        <a class="brand-mark" href="index.html" aria-label="Back to Nanhi Potli home">
+          <img src="assets/logo.svg" alt="" />
+          <span>Nanhi Potli</span>
+        </a>
+        <div class="topbar__actions">
+          <a href="index.html#recommendations">Products</a>
+          <a href="index.html#liked-by-mothers">Liked by Mothers</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="detail-main">
+      <a class="back-link" href="index.html#recommendations">Back to products</a>
+      <section class="detail-page" id="detailPage" aria-live="polite"></section>
+    </main>
+
+    <script>
+      const detailPage = document.querySelector("#detailPage");
+      const storedProduct = sessionStorage.getItem("nanhi-potli-selected-product");
+      const product = storedProduct ? JSON.parse(storedProduct) : null;
+
+      function sourceStatus(item) {
+        return item.recall_checked.startsWith("No") ? "Recall pending" : "Recall checked";
+      }
+
+      function productImage(item) {
+        return item.product_image || item.image_url || item.image || item.thumbnail_url || "";
+      }
+
+      function renderMissingState() {
+        detailPage.innerHTML = `
+          <div class="empty-state">
+            <strong>Product details are not available</strong>
+            <span>Open a product from the recommendation board to view its detail page.</span>
+          </div>
+        `;
+      }
+
+      function renderProductDetail(item) {
+        document.title = `${item.product_name} | Nanhi Potli`;
+        detailPage.innerHTML = `
+          <div class="detail-hero">
+            <div class="detail-image">
+              ${
+                productImage(item)
+                  ? `<img src="${productImage(item)}" alt="${item.product_name}" />`
+                  : `<span>Image pending</span>`
+              }
+            </div>
+            <div>
+              <p class="eyebrow">${item.category}</p>
+              <h1>${item.product_name}</h1>
+              <p>${item.summary}</p>
+            </div>
+            <aside class="detail-score">
+              <span>Parent rating</span>
+              <strong>Pending</strong>
+              <small>0 verified ratings</small>
+            </aside>
+          </div>
+
+          <div class="disclaimer" role="note">
+            This POC is not medical advice. Parent ratings, rating breakdowns, and product-specific
+            recall checks are not verified in the seed data.
+          </div>
+
+          <div class="detail-grid">
+            <section>
+              <h2>Product Snapshot</h2>
+              <dl class="fact-list">
+                <div>
+                  <dt>Brand</dt>
+                  <dd>${item.brand}</dd>
+                </div>
+                <div>
+                  <dt>Age range</dt>
+                  <dd>${item.age_range}</dd>
+                </div>
+                <div>
+                  <dt>Internal score</dt>
+                  <dd>${item.confidence_score}/100</dd>
+                </div>
+                <div>
+                  <dt>Status</dt>
+                  <dd>${item.editorial_status}</dd>
+                </div>
+                <div>
+                  <dt>Last reviewed</dt>
+                  <dd>Pending admin review</dd>
+                </div>
+                <div>
+                  <dt>Recall</dt>
+                  <dd>${sourceStatus(item)}</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section>
+              <h2>Why This Is a Seed Candidate</h2>
+              <p>${item.safety_standard_certification}</p>
+            </section>
+
+            <section class="detail-warning">
+              <h2>Safety Points</h2>
+              <p>${item.safety_notes}</p>
+            </section>
+
+            <section>
+              <h2>What Mothers Liked</h2>
+              <p>Pending moderated parent reviews.</p>
+            </section>
+
+            <section>
+              <h2>Common Complaints to Validate</h2>
+              <p>${item.common_complaint}</p>
+            </section>
+
+            <section>
+              <h2>Rating Breakdown</h2>
+              <p>Pending verified parent ratings.</p>
+            </section>
+
+            <section>
+              <h2>Source References</h2>
+              <div class="source-links">
+                <a href="${item.product_link}" target="_blank" rel="noreferrer">Product page</a>
+                <a href="${item.expert_source}" target="_blank" rel="noreferrer">Expert reference</a>
+                <button class="link-button" id="reportButton" type="button">Report issue</button>
+              </div>
+            </section>
+          </div>
+        `;
+
+        document.querySelector("#reportButton").addEventListener("click", (event) => {
+          event.currentTarget.textContent = "Issue noted";
+          event.currentTarget.disabled = true;
+        });
+      }
+
+      if (product) {
+        renderProductDetail(product);
+      } else {
+        renderMissingState();
+      }
+    </script>
+  </body>
+</html>
